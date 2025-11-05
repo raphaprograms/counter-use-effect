@@ -10,7 +10,7 @@ function Counter() {
     // setCount((prevCount) => prevCount + 1 );
     //     console.log(count);
 
-
+    //localStorage here? 
     // useEffect(() => {
 
     // }, []);
