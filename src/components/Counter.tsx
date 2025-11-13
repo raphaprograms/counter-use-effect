@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 
 
@@ -6,6 +7,7 @@ function Counter() {
     const [count, setCount] = useState<number>(0);
     const [countHistory, setCountHistory] = useState<number[]>([]);
     const [stepValue, setStepValue] = useState<number>(1);
+    const [storedValue, setStoredValue] = useLocalStorage('current count:', count);
 
     // setCount((prevCount) => prevCount + 1 );
     //     console.log(count);
@@ -17,8 +19,10 @@ function Counter() {
 
     useEffect(() => {
         setCountHistory((prevCountHistory) => [...prevCountHistory, count]);
+        setStoredValue(count);
         console.log(countHistory);
     }, [count]);
+
 
     function handleReset() {
         setCount(0);
